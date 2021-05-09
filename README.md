@@ -1,2 +1,3 @@
-# capstone
-Docker Capstone Project.
+# Server
+
+# Client
