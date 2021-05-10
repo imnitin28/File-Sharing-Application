@@ -1,4 +1,5 @@
 # STAGE - 1
+
 FROM python:3.8-slim-buster as initial-stage  
 
 LABEL "PURPOSE"="Get python base image from hub."

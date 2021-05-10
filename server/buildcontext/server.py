@@ -1,8 +1,3 @@
-'''
-Created on Sep 17, 2016
-
-@author: prati
-'''
 import socket
 import time
 import os
@@ -133,38 +128,17 @@ def ServerPut():
         tillI = Count.decode('utf8')
         tillI = int(tillI)
 
-        #tillI = 100
-        #tillI = tillI - 2
-        # s.settimeout(2)
         while tillI != 0:
             ServerData, serverAddr = s.recvfrom(4096)
-            # s.settimeout(2)
-
-            #BigS = open("tmp.txt", "wb")
+            
             dataS = BigSAgain.write(ServerData)
-            #BigS2 = open("tmp.txt", "r")
-            #Add = BigS2.read()
-            # print(Add)
-            #Big = Big + Add
-            # BigS2.close()
-            #dataF = tmp.write(ServerData)
-            # Big.append(ServerData)
+           
             d += 1
             tillI = tillI - 1
             print("Received packet number:" + str(d))
 
-            # tmp.close()
-
-        #Bigstr = ''.join(map(str, Big))
         BigSAgain.close()
         print("New file closed. Check contents in your directory.")
-        #Bigstr = str(Big)
-        # print(Big)
-
-        #BigSAgain = open(t2[1], "w")
-        # BigSAgain.write(Big)
-        # BigSAgain.close()
-
 
 def ServerElse():
     msg = "Error: You asked for: " + \
@@ -192,8 +166,7 @@ try:
     print("Server socket initialized")
     s.bind((host, port))
     print("Successful binding. Waiting for Client now.")
-    # s.setblocking(0)
-    # s.settimeout(15)
+
 except socket.error:
     print("Failed to create socket")
     sys.exit()
@@ -208,7 +181,7 @@ while True:
         sys.exit()
     text = data.decode('utf8')
     t2 = text.split()
-    #print("data print: " + t2[0] + t2[1] + t2[2])
+
     if t2[0] == "get":
         print("Go to get func")
         ServerGet(t2[1])

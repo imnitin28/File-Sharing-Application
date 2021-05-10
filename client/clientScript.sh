@@ -3,7 +3,7 @@
 # create new volume clientvol
 docker volume create clientvol
 
-# build docker image with no cache so that it doesn't fetches anything from previously build images.
+# build docker image with no cache so that it doesn't fetches anything from previously build images
 # -t for tag name of image 
 # -f for providing Dockerfile from custom location
 # also buildcontext is for providing custom build context containing necessary files only.

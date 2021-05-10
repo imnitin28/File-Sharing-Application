@@ -1,8 +1,3 @@
-'''
-Created on Sep 17, 2016
-
-@author: prati
-'''
 import socket
 import time
 import os
@@ -10,7 +5,7 @@ import sys
 
 
 def checkArg():
-    """this works omly if executed from command prompt window, it is not designed to work on
+    """this works only if executed from command prompt window, it is not designed to work on
     eclipse platform, since by default, len(sys.argv)=1 & therefore the below condition will
     always be displayed as true"""
     if len(sys.argv) != 3:
@@ -48,8 +43,6 @@ except IndexError:
 
 checkPort()
 
-#host = "127.0.0.1"
-#port = 6000
 try:
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     print("Client socket initialized")
@@ -58,37 +51,12 @@ try:
 except socket.error:
     print("Failed to create socket")
     sys.exit()
-# time.sleep(1)  # gives times for server to reach at same stage
-
-"""
-Functions like below can be created and called. However, for simplicity, we just put everything in main.
-def ClientGet(a):
-    ClientData, clientAddr = s.recvfrom(51200)
-    text = ClientData.decode('utf8')
-    print(text)
-
-    ClientData, clientAddr = s.recvfrom(8192)
-    text = ClientData.decode('utf8')
-    print("hey" + text)
-
-    if len(text) < 30:
-        Data, Recv = s.recvfrom(8192)
-        NewFileOpen = open(a, "wb")
-        NewFileOpen.write(Data)
-        NewFileOpen.close()
-        print("Received File")
-        
-        
-"""
 
 while True:
     command = input(
         "Please enter a command: \n1. get [file_name]\n2. put [file_name]\n3. list\n4. exit\n ")
 
-    """o get [file_name]
-    o put [file_name]
-    o list
-    o exit"""
+    
     CommClient = command.encode('utf-8')
     try:
         s.sendto(CommClient, (host, port))
@@ -96,8 +64,7 @@ while True:
         print(
             "Error. Port numbers are not matching. Exiting. Next time please enter same port numbers.")
         sys.exit()
-    #text1 = CommClient.decode('utf-8')
-    #t3 = text1.split()
+    
     CL = command.split()
     print(
         "We shall proceed, but you may want to check Server command prompt for messages, if any.")

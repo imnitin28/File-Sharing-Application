@@ -1,0 +1,4 @@
+# ignore files with these starting point.
+*/temp*
+*/*/temp*
+temp?
